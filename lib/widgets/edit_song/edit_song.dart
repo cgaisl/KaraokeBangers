@@ -29,6 +29,9 @@ class EditSong extends StatelessWidget {
           onPitchChanged: (pitch) {
             onEvent(EditSongEventPitchChanged(pitch));
           },
+          onBackButtonPressed: () {
+            onEvent(EditSongEventCancel());
+          },
         ),
         SongInputSection(
           artistName: state.artistName,
@@ -99,12 +102,14 @@ class EditSongNavigationBar extends StatelessWidget {
   final int pitch;
   final Function(int) onPitchChanged;
   final Function()? onDelete;
+  final Function() onBackButtonPressed;
 
   const EditSongNavigationBar({
     Key? key,
     required this.title,
     required this.pitch,
     required this.onPitchChanged,
+    required this.onBackButtonPressed,
     this.onDelete,
   }) : super(key: key);
 
@@ -148,6 +153,7 @@ class EditSongNavigationBar extends StatelessWidget {
           ),
         ],
       ),
+      onBackButtonPressed: onBackButtonPressed,
     );
   }
 }

@@ -23,7 +23,7 @@ class SongUpdateScreen extends StatelessWidget {
       create: (BuildContext context) => SongUpdateScreenBloc(
         songId: songId,
         songRepository: songRepository,
-        pop: Navigator.of(context).pop,
+        pop: Navigator.of(context).maybePop,
         popUntil: (predicate) => Navigator.of(context).popUntil(predicate),
       ),
       child: Builder(

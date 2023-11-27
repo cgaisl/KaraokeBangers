@@ -13,7 +13,7 @@ class SongNewScreen extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => SongNewScreenBloc(
         songRepository: songRepository,
-        pop: () => Navigator.of(context).pop,
+        pop: Navigator.of(context).pop,
       ),
       child: BlocBuilder<SongNewScreenBloc, SongNewScreenState>(
         builder: (context, state) {
